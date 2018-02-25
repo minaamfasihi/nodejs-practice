@@ -3,13 +3,27 @@ const fs = require('fs'); // filesystem
 const _ = require('lodash'); // _ is usually used to load lodash
 const notes = require('./notes.js')
 const yargs = require('yargs');
+const titleOptions = {
+                    describe: 'Title of note',
+                    demand: true,
+                    alias: 't'
+                };
 
 var argv = yargs
             .command('add', 'Add a new note', {
-                title: {
-                    describe: 'Title of note',
-                    demand: true
+                title: titleOptions,
+                body: {
+                    describe: 'Body of note',
+                    demand: true,
+                    alias: 'b'
                 }
+            })
+            .command('list', 'List all notes')
+            .command('read', 'Read a note', {
+                title: titleOptions
+            })
+            .command('remove', 'Remove a note', {
+                title: titleOptions
             })
             .help()
             .argv; // parses the arguments and returns them
