@@ -1,0 +1,9 @@
+- nodemon path/to/file 
+monitors that particular file
+
+- npm run test-watch
+runs the command in test-watch inside scripts in package.json
+
+- nodemon --exec "npm test"
+runs nodemon and executes the command give in quotes with every change
+
